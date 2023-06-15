@@ -3,6 +3,6 @@
 	import { onMount } from 'svelte';
 
 	onMount(async () => {
-		goto(`/dashboard`, { replaceState: false });
+		goto(`/holding`, { replaceState: false });
 	});
 </script>

@@ -1,11 +1,6 @@
 <script lang="ts">
 	import TBody from './TBody.svelte';
 	import THead from './THead.svelte';
-	import { ascendinSort, descendingSort, debounce } from './helper';
-
-	/**
-	 * Usage - Refer README.md
-	 */
 
 	type TableData = {
 		columns: {
@@ -18,11 +13,10 @@
 		}[];
 		data: object[];
 	};
-	export let tableTitle = 'Data Table';
-	export let pagination = false;
+
 	export let tableData: TableData = { columns: [], data: [] };
 	export let tableHeight: string='auto';
-	export let horizontalTable: boolean= true;
+	export let pagination:boolean =false;
 
 	const columnData = tableData.columns || [];
 	const rowData = tableData.data || [];
@@ -47,45 +41,7 @@
 
 
 </script>
-
-<div class="app-table tw-w-full tw-overflow-x-auto tw-rounded-md tw-border tw-border-inherit">
-	
-	<!-- <div class="app-table-wrapper" style={`height: ${tableHeight || 'auto'} `}> -->
-		<table class="tw-table tw-w-full">
-			<!-- head -->
-			<THead>
-				{#each columnData as eachCol}
-					<th
-						class={`app-table-th ${eachCol.thClass || ''}`}
-						style={`${
-							eachCol.thStyle && typeof eachCol.thStyle === 'object'
-								? JSON.stringify(eachCol.thStyle).replace(/[{}"]/gi, '').replace(/,/gi, ';')
-								: ''
-						}`}
-						><div class="app-th-label app-inline-block">{eachCol.name}</div>
-					</th>
-				{/each}
-			</THead>
-
-			<TBody>
-				{#each slice as eachRow}
-					<tr class="tw-hover"
-						>{#each columnData as eachCol}
-							<td
-								class={`app-table-td ${eachCol.tdClass || ''}`}
-								style={`${
-									eachCol.tdStyle && typeof eachCol.tdStyle === 'object'
-										? JSON.stringify(eachCol.tdStyle).replace(/[{}"]/gi, '').replace(/,/gi, ';')
-										: ''
-								}`}
-								>{eachRow[eachCol.fieldName] || ''}
-							</td>{/each}</tr
-					>
-				{/each}
-			</TBody>
-		</table>
-	<!-- </div> -->
-	{#if pagination}
+{#if pagination}
 		<div
 			class="tw-flex tw-w-full tw-items-center tw-justify-end tw-border tw-border-inherit tw-py-4 tw-px-4"
 		>
@@ -130,6 +86,36 @@
 			</div>
 		</div>
 	{/if}
+<div class="app-table tw-w-full tw-overflow-x-auto tw-rounded-md tw-border tw-border-inherit">
+
+
+		<table class="tw-table tw-w-full">
+			<!-- head -->
+			
+		  
+			<TBody>
+			  {#each columnData as eachCol}
+				<tr class="tw-hover">
+				  <th
+					class="app-table-th"
+					style="text-align: left;"
+				  >
+					{eachCol.name}
+				  </th>
+				  {#each slice as eachRow}
+					<td
+					  class="app-table-td"
+					  style=""
+					>
+					  {eachRow[eachCol.fieldName] || ''}
+					</td>
+				  {/each}
+				</tr>
+			  {/each}
+			</TBody>
+		  </table>
+	<!-- </div> -->
+	
 </div>
 
 <style>

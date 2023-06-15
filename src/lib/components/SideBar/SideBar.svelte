@@ -12,37 +12,42 @@
 	let expanded = true;
 	let files = [
 		{
-			name: 'Dashboard',
-			url: '/dashboard',
+			name: 'Holding',
+			url: '/holding',
 			icon: WorldIcon
 		},
-		{ name: 'Home', url: '/home', icon: WorldIcon },
-		{ name: 'Profile', url: '/profile', icon: WorldIcon },
-		{ name: 'FAQ', url: '/faq', icon: WorldIcon },
 		{
-			name: 'Group A',
-			icon: WorldIcon,
-			files: [
-				{
-					name: 'Subgroup 1',
-					icon: WorldIcon,
-					files: [
-						{ name: 'Route 1', url: '/g' },
-						{ name: 'Route 2', url: '/b' }
-					]
-				},
-				{
-					name: 'Subgroup 2',
-					files: [
-						{ name: 'Route 3', url: '/c' },
-						{ name: 'Route 4', url: '/d' }
-					]
-				},
-				{ name: 'Route 5', url: '/e' },
-				{ name: 'Route 6', url: '/f' },
-				{ name: 'Route 7', url: '/g' }
-			]
-		}
+			name: 'Ledger',
+			url: '/ledger',
+			icon: WorldIcon
+		},
+		{ name: 'Position', url: '/position', icon: WorldIcon },
+		{ name: 'Margin', url: '/margin', icon: WorldIcon },
+		{ name: 'Non-Margin', url: '/nonMargin', icon: WorldIcon },
+		// {
+		// 	name: 'Group A',
+		// 	icon: WorldIcon,
+		// 	files: [
+		// 		{
+		// 			name: 'Subgroup 1',
+		// 			icon: WorldIcon,
+		// 			files: [
+		// 				{ name: 'Route 1', url: '/g' },
+		// 				{ name: 'Route 2', url: '/b' }
+		// 			]
+		// 		},
+		// 		{
+		// 			name: 'Subgroup 2',
+		// 			files: [
+		// 				{ name: 'Route 3', url: '/c' },
+		// 				{ name: 'Route 4', url: '/d' }
+		// 			]
+		// 		},
+		// 		{ name: 'Route 5', url: '/e' },
+		// 		{ name: 'Route 6', url: '/f' },
+		// 		{ name: 'Route 7', url: '/g' }
+		// 	]
+		// }
 	];
 </script>
 
